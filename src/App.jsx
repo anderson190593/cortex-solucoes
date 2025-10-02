@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { useState } from 'react';
+import './App.css'; // Importa nosso CSS customizado
 
 function App() {
-  const [count, setCount] = useState(0)
+  // O 'useState' controla o estado (a memória) do tema. Começamos com 'dark'.
+  const [theme, setTheme] = useState('dark');
+
+  // Função que será chamada para trocar o tema
+  const toggleTheme = () => {
+    // Se o tema atual for 'light', muda para 'dark', e vice-versa.
+    setTheme(currentTheme => (currentTheme === 'light' ? 'dark' : 'light'));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    // O atributo 'data-theme' vai aplicar os estilos CSS que definimos
+    <div className="App" data-theme={theme}>
+      <div className="container text-center mt-5">
+        <h1>Olá! Bem-vindo ao nosso novo site.</h1>
+        <p>O tema atual é: {theme}</p>
+        <button className="btn btn-primary" onClick={toggleTheme}>
+          Mudar para o tema {theme === 'light' ? 'Escuro' : 'Claro'}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
