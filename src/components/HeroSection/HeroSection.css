@@ -1,0 +1,32 @@
+/* src/components/HeroSection/HeroSection.css */
+
+.hero-section {
+  /* Usa flexbox para centralizar o conteúdo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Define uma altura mínima de quase toda a tela, descontando a altura do navbar */
+  min-height: calc(100vh - 80px); /* Ajuste 80px se o seu navbar for maior ou menor */
+  padding: 2rem 0;
+  background-color: var(--bg-color);
+}
+
+.hero-section h1 {
+  color: var(--font-color);
+}
+
+.hero-section .lead {
+  color: var(--font-color);
+  opacity: 0.8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+}
