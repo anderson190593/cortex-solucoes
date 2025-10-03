@@ -1,0 +1,26 @@
+/* src/components/Portfolio/Portfolio.css */
+
+.portfolio-section {
+  padding: 60px 0;
+  background-color: var(--bg-secondary-color); /* Cor de fundo alternada */
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-section .lead-muted {
+  color: var(--font-color);
+  opacity: 0.7;
+}
+
+.client-logo {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%); /* Começa em escala de cinza */
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo:hover {
+  filter: grayscale(0%); /* Fica colorido ao passar o mouse */
+  opacity: 1;
+}
