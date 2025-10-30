@@ -1,45 +1,91 @@
 /* src/components/Navbar/Navbar.css */
 
-.navbar {
-  background-color: var(--bg-secondary-color);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+.navbar-custom {
+  /* Fundo transparente e espaçamento */
+  background-color: transparent;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-color); /* Borda sutil como na imagem */
+  position: absolute; /* Flutuante, não "empurra" o conteúdo */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
+/* 1. Logo */
 .navbar-brand {
-  color: var(--font-color);
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-family: var(--font-family-primary); /* Fonte Poppins */
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #fff; /* O logo no exemplo é branco */
 }
-
 .navbar-brand:hover {
   color: var(--primary-color);
 }
 
-.nav-link {
-  color: var(--font-color);
-  font-weight: 500;
+/* 3. Links Centrais */
+.nav-item {
+  margin: 0 0.75rem;
 }
 
-.nav-link:hover {
+.nav-link {
+  font-family: var(--font-family-secondary); /* Fonte Inter */
+  color: var(--text-muted-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff; /* Links ficam brancos no hover */
+}
+
+/* 4. Ações à Direita */
+
+/* Ajustando os botões para o padrão da imagem (menores) */
+.navbar-actions .btn {
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+
+/* Botão de Contato (outline) */
+.navbar-actions .btn-outline-primary {
+  color: var(--text-muted-color);
+  border-color: var(--border-color);
+}
+.navbar-actions .btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Botão de Serviços (primário, ciano) */
+.navbar-actions .btn-primary {
+  color: #000; /* Texto escuro no botão ciano para contraste */
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.navbar-actions .btn-primary:hover {
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Seletor de Tema */
+.theme-toggler {
+  background: transparent;
+  border: none;
+  color: var(--text-muted-color);
+  font-size: 1.5rem;
+  padding: 0;
+}
+.theme-toggler:hover {
   color: var(--primary-color);
 }
 
-/* Estilo para o botão de troca de tema */
-.theme-toggler {
-  background-color: var(--bg-color);
-  color: var(--font-color);
-  border: 1px solid var(--border-color);
-  font-size: 1.2rem;
-  padding: 0.25rem 0.75rem;
+/* 2. Estilo do Botão Sanduíche (Mobile) */
+.navbar-toggler {
+  border-color: var(--border-color);
 }
-
-.theme-toggler:hover {
-  border-color: var(--primary-color);
-}
-
-/* Customizando o ícone do menu "sanduíche" para o tema escuro */
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 245, 247, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
