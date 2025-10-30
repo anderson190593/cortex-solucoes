@@ -1,35 +1,121 @@
 /* src/components/HeroSection/HeroSection.css */
 
 .hero-section {
-  /* Define a altura mínima da seção */
-  min-height: calc(100vh - 80px); /* 100% da altura da tela, menos a altura do navbar */
+  /* 1. CONFIGURAÇÃO DE ALTURA E FLEXBOX (A MÁGICA ACONTECE AQUI) */
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo em uma coluna (de cima para baixo) */
+  min-height: 100vh; /* GARANTE QUE A SEÇÃO TENHA NO MÍNIMO 100% DA ALTURA DA TELA */
   
-  /* Usa flexbox para controlar o alinhamento do conteúdo interno */
+  /* Padding para o Navbar flutuante e para a base */
+  padding-top: 140px; /* Espaço para o Navbar (140px é um bom começo) */
+  padding-bottom: 60px;
+  
+  background-color: var(--bg-color);
+  overflow: hidden; /* Evita barras de rolagem laterais */
+}
+
+/* 2. FAZ O CONTAINER PRINCIPAL CRESCER */
+.hero-section > .container {
   display: flex;
   flex-direction: column;
-  align-items: center;      /* Centraliza na horizontal */
-  justify-content: center;  /* Centraliza na vertical */
-
-  /* Estilos visuais */
-  padding: 2rem 0;
-  background-color: var(--bg-color);
+  flex-grow: 1; /* Faz o container ocupar todo o espaço vertical disponível */
 }
 
-.hero-section h1 {
-  color: var(--font-color);
+/* 3. FAZ A LINHA DE CONTEÚDO (TEXTO + IMAGEM) CRESCER */
+.hero-section .row.align-items-center {
+  flex-grow: 1; /* Faz esta linha crescer, empurrando os stats para baixo */
+  /* align-items-center (do Bootstrap) já centraliza verticalmente o texto e a imagem */
 }
 
-.hero-section .lead {
-  color: var(--font-color);
-  opacity: 0.8;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+
+.hero-content {
+  text-align: left;
 }
 
-.hero-section .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
+/* --- ADICIONE ESTE NOVO BLOCO --- */
+.hero-text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+/* --- O resto do código permanece o mesmo --- */
+
+/* Tag de Destaque */
+.hero-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-muted-color);
+  font-family: var(--font-family-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.hero-tag span {
+  color: var(--secondary-color); /* Verde neon */
+  margin-right: 0.5rem;
+}
+
+/* Título Principal */
+.hero-title {
+  font-family: var(--font-family-primary);
+  font-size: 4.5rem; 
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  font-family: var(--font-family-secondary);
+  font-size: 1.15rem;
+  color: var(--text-muted-color);
+  line-height: 1.7;
+  max-width: 90%; 
+  margin-bottom: 2rem;
+}
+
+/* Imagem */
+.hero-image {
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Seção de Estatísticas */
+.hero-stats {
+  /* O flex-grow na linha de conteúdo já empurra isso para baixo */
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  flex-shrink: 0; /* Evita que a seção de stats encolha */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-number {
+  font-family: var(--font-family-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color); /* Ciano */
+}
+
+.stat-label {
+  font-family: var(--font-family-secondary);
+  font-size: 1rem;
+  color: var(--text-muted-color);
+}
+
