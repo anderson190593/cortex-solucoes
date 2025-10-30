@@ -1,31 +1,111 @@
 /* src/App.css */
 
+/* --- Variáveis de Cores (Nova Paleta) --- */
 :root {
-  /* Vamos usar uma fonte mais moderna depois, por enquanto o padrão do sistema */
-  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Fontes (inspiradas no estilo moderno) */
+  --font-family-primary: 'Poppins', sans-serif; /* Ou outra fonte sans-serif moderna que combine */
+  --font-family-secondary: 'Inter', sans-serif;
+
+  /* TEMA ESCURO (Dark Theme - o foco principal agora) */
+  --bg-color-dark: #0A0A0A; /* Fundo preto bem escuro */
+  --bg-secondary-dark: #1A1A1A; /* Para seções ou cards */
+  --text-color-dark: #E0E0E0; /* Texto claro */
+  --text-muted-dark: #888888; /* Texto secundário/cinza */
+  --primary-color-dark: #00BFFF; /* Ciano vibrante */
+  --secondary-color-dark: #39FF14; /* Verde neon para destaque secundário */
+  --border-color-dark: #2A2A2A; /* Bordas e divisores */
+  --accent-glow-dark: rgba(0, 191, 255, 0.3); /* Brilho ciano */
+
+  /* TEMA CLARO (Light Theme - manteremos simples por enquanto, foco no dark) */
+  --bg-color-light: #F0F0F0;
+  --bg-secondary-light: #FFFFFF;
+  --text-color-light: #1A1A1A;
+  --text-muted-light: #666666;
+  --primary-color-light: #007bff;
+  --secondary-color-light: #28a745;
+  --border-color-light: #E0E0E0;
+  --accent-glow-light: rgba(0, 123, 255, 0.2);
+
+  /* Variáveis globais baseadas no tema ativo */
+  --bg-color: var(--bg-color-dark);
+  --bg-secondary-color: var(--bg-secondary-dark);
+  --text-color: var(--text-color-dark);
+  --text-muted-color: var(--text-muted-dark);
+  --primary-color: var(--primary-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --border-color: var(--border-color-dark);
+  --accent-glow: var(--accent-glow-dark);
 }
 
-/* TEMA CLARO (LIGHT) */
+/* Aplica o tema claro quando 'data-theme' é 'light' */
 [data-theme='light'] {
-  --bg-color: #f5f5f7;
-  --bg-secondary-color: #ffffff;
-  --font-color: #1d1d1f;
-  --primary-color: #0071e3;
-  --border-color: #d2d2d7;
+  --bg-color: var(--bg-color-light);
+  --bg-secondary-color: var(--bg-secondary-light);
+  --text-color: var(--text-color-light);
+  --text-muted-color: var(--text-muted-light);
+  --primary-color: var(--primary-color-light);
+  --secondary-color: var(--secondary-color-light);
+  --border-color: var(--border-color-light);
+  --accent-glow: var(--accent-glow-light);
 }
 
-/* TEMA ESCURO (DARK) */
-[data-theme='dark'] {
-  --bg-color: #121212;
-  --bg-secondary-color: #1e1e1e;
-  --font-color: #f5f5f7;
-  --primary-color: #00aaff;
-  --border-color: #3a3a3a;
-}
-
+/* --- Estilos Base --- */
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-color);
-  color: var(--font-color);
-  font-family: var(--font-family);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--text-color);
+  font-family: var(--font-family-secondary); /* Corpo de texto */
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de tema */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary); /* Títulos */
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+/* Links globais */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Estilos de botões básicos do Bootstrap para se adequar ao tema */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color); /* Manter a cor base no hover */
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-glow); /* Adicionar um brilho no hover */
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
