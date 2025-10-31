@@ -36,7 +36,7 @@ const HeroSection = () => {
           <div className="col-lg-6 text-center">
             {/* Usaremos um placeholder. No futuro, trocamos por uma imagem 3D/tech */}
             <img
-              src="https://pracarreiras.com.br/wp-content/uploads/2023/05/Alphacode-fala-sobre-solucoes-tecnologicas.jpg"
+              src="../../../images/hero-image.png"
               alt="Soluções Tecnológicas"
               className="img-fluid hero-image"
             />
@@ -47,7 +47,7 @@ const HeroSection = () => {
         <div className="row hero-stats">
           <div className="col-lg-4 col-md-4">
             <div className="stat-item">
-              <span className="stat-number">10+</span>
+              <span className="stat-number">500+</span>
               <span className="stat-label">Projetos Entregues</span>
             </div>
           </div>
