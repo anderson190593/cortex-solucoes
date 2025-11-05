@@ -1,26 +1,62 @@
 /* src/components/Portfolio/Portfolio.css */
 
 .portfolio-section {
-  padding: 60px 0;
-  background-color: var(--bg-secondary-color); /* Cor de fundo alternada */
+  padding: 100px 0;
+  background-color: var(--bg-color); /* Fundo principal */
   border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
 }
 
-.portfolio-section .lead-muted {
-  color: var(--font-color);
-  opacity: 0.7;
+.portfolio-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-muted-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.portfolio-tag span {
+  color: var(--secondary-color); /* Verde neon */
+  margin-right: 0.5rem;
 }
 
-.client-logo {
-  max-width: 100%;
-  height: auto;
-  filter: grayscale(100%); /* Começa em escala de cinza */
-  opacity: 0.7;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+.portfolio-title {
+  font-family: var(--font-family-primary);
+  font-size: 3rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  color: #fff;
 }
 
-.client-logo:hover {
-  filter: grayscale(0%); /* Fica colorido ao passar o mouse */
-  opacity: 1;
+.portfolio-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted-color);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Lista de "checkmarks" */
+.portfolio-checks {
+  list-style: none;
+  padding-left: 0;
+}
+.portfolio-checks li {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.portfolio-checks li span {
+  color: var(--secondary-color); /* Verde neon */
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+/* Placeholder da imagem */
+.portfolio-visual .img-fluid {
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 0.75rem; /* Cantos arredondados */
 }
