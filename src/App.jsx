@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection/HeroSection';
 import Features from './components/Features/Features';
 import ProjectControl from './components/ProjectControl/ProjectControl';
 import Portfolio from './components/Portfolio/Portfolio';
+import AboutSection from './components/AboutSection/AboutSection';
 import CTA from './components/CTA/CTA';
 import Footer from './components/Footer/Footer';
 
@@ -23,6 +24,7 @@ function App() {
       <Features />
       <ProjectControl />
       <Portfolio />
+      <AboutSection />
       <CTA />
       <Footer />
     </div>
