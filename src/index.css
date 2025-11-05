@@ -1,7 +1,11 @@
-/* * REMOVA TODO O CONTEÚDO ANTIGO DESTE ARQUIVO.
- * O CSS antigo do Vite estava limitando a largura do nosso site.
- * Deixe apenas este reset básico.
- */
+/* src/index.css */
+
+/* --- ADICIONE ESTA NOVA REGRA --- */
+html {
+  /* Esta é a mágica! */
+  scroll-behavior: smooth;
+}
+/* --------------------------------- */
 
 :root {
   /* Garante que as fontes sejam suaves */
