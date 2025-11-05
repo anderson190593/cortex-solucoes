@@ -27,9 +27,6 @@ const Navbar = ({ theme, toggleTheme }) => {
             <li className="nav-item">
               <a className="nav-link" href="#portfolio">Portfólio</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#sobre">Sobre</a>
-            </li>
           </ul>
 
           {/* 4. Ações à Direita (botão e seletor de tema) */}
