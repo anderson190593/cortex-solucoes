@@ -3,11 +3,15 @@
 import React from 'react';
 import './AboutSection.css';
 
-// --- ATUALIZE O CAMINHO DA SUA FOTO AQUI ---
-// Ex: import SuaFoto from '../../assets/sua-foto.png';
-import SuaFoto from 'https://via.placeholder.com/500x500.png?text=Foto+Anderson';
+// NÃO VAMOS MAIS IMPORTAR A FOTO AQUI. VAMOS USÁ-LA DIRETAMENTE.
 
 const AboutSection = () => {
+  
+  // --- COLOQUE O CAMINHO DA SUA FOTO AQUI ---
+  // Por enquanto, usaremos o placeholder.
+  // Se você salvar sua foto na pasta 'public/', o caminho será "/sua-foto.png"
+  const suaFotoUrl = "https://via.placeholder.com/500x500.png?text=Foto+Anderson";
+
   return (
     <section id="sobre" className="about-section">
       <div className="container">
@@ -16,8 +20,8 @@ const AboutSection = () => {
           <div className="col-lg-6">
             <div className="about-image-wrapper">
               <img 
-                // --- E ATUALIZE AQUI ---
-                src={SuaFoto} 
+                // --- MUDANÇA AQUI ---
+                src={suaFotoUrl} // Usamos a variável de URL diretamente
                 alt="Anderson - Fundador da Cortex Soluções" 
                 className="img-fluid rounded"
               />
@@ -44,10 +48,6 @@ const AboutSection = () => {
               e em relacionamentos de longo prazo. Quando você cresce, 
               nós crescemos juntos.
             </p>
-            {/* Opcional: Adicionar um link para o LinkedIn */}
-            {/* <a href="SEU_LINKEDIN_AQUI" className="btn btn-outline-primary mt-3" target="_blank" rel="noopener noreferrer">
-              Conheça meu LinkedIn
-            </a> */}
           </div>
         </div>
       </div>
