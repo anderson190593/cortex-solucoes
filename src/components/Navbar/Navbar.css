@@ -1,5 +1,10 @@
 /* src/components/Navbar/Navbar.css */
 
+.logo-nav {
+  width: 150px;
+  height: auto;
+}
+
 .navbar-custom {
   /* Fundo transparente e espaçamento */
   background-color: transparent;
@@ -70,16 +75,22 @@
   box-shadow: 0 0 15px var(--accent-glow);
 }
 
+/* Substitua a regra .theme-toggler existente por esta: */
+
 /* Seletor de Tema */
 .theme-toggler {
   background: transparent;
   border: none;
-  color: var(--text-muted-color);
-  font-size: 1.5rem;
+  /* --- MUDANÇA AQUI --- */
+  color: var(--primary-color); /* Ciano neon! */
   padding: 0;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 .theme-toggler:hover {
-  color: var(--primary-color);
+  color: #fff; /* Branco brilhante no hover */
+  opacity: 1;
+  transform: scale(1.1) rotate(15deg); /* Efeito "tech" sutil */
 }
 
 /* 2. Estilo do Botão Sanduíche (Mobile) */
@@ -88,4 +99,50 @@
 }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Estilizando o menu mobile (hambúrguer) quando aberto */
+@media (max-width: 991.98px) {
+  
+  /* Adiciona o fundo sólido ao "dropdown" */
+  .navbar-collapse {
+    background-color: var(--bg-secondary-color);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+  }
+
+  /* Garante que os botões de ação ocupem a largura total */
+  .navbar-actions {
+    margin-top: 1.5rem;
+    flex-direction: column;
+    align-items: stretch !important; /* Força o alinhamento */
+  }
+
+  .navbar-actions .btn {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  
+  .navbar-actions .btn-outline-primary {
+      margin-right: 0 !important; /* Remove a margem direita do botão */
+  }
+
+  /* Centraliza o seletor de tema */
+  .navbar-actions .theme-toggler {
+    margin-top: 1rem;
+    align-self: center; 
+  }
+}
+/* Estilo para a imagem da logo */
+.navbar-logo {
+    height: 40px; /* Você pode ajustar essa altura */
+    width: auto;
+}
+
+/* Ajuste para o logo no menu mobile */
+@media (max-width: 991.98px) {
+  .navbar-brand .navbar-logo {
+      height: 35px; /* Um pouco menor no mobile */
+  }
 }
