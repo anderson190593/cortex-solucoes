@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './Footer.css';
+import CortexLogo from '../../assets/logos/logo-cortex-Photoroom.png'; // 1. IMPORTAR A LOGO
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,8 +13,9 @@ const Footer = () => {
         {/* Links Principais */}
         <div className="row footer-top">
           <div className="col-lg-4">
+            {/* 2. USAR A IMAGEM DA LOGO AQUI */}
             <a className="footer-brand" href="#">
-              anderson.dev
+              <img src={CortexLogo} alt="Cortex Soluções Logo" className="footer-logo" />
             </a>
           </div>
           <div className="col-lg-8">
@@ -28,9 +30,9 @@ const Footer = () => {
         {/* Linha Divisória e Copyright */}
         <div className="footer-bottom">
           <p className="copyright-text">
-            &copy; {currentYear} anderson.dev. Todos os direitos reservados.
+            {/* 3. ATUALIZAR NOME DA EMPRESA */}
+            &copy; {currentYear} Cortex Soluções. Todos os direitos reservados.
           </p>
-          {/* No futuro, podemos adicionar ícones de redes sociais aqui */}
         </div>
       </div>
     </footer>
