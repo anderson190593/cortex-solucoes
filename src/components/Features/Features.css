@@ -1,0 +1,75 @@
+/* src/components/Features/Features.css */
+
+.features-section {
+  padding: 100px 0;
+  background-color: var(--bg-color); /* Fundo principal escuro */
+  overflow: hidden;
+  border-top: 1px solid var(--border-color); /* Linha sutil separando da Hero */
+}
+
+.features-title {
+  font-family: var(--font-family-primary);
+  font-size: 3rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.features-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted-color);
+  line-height: 1.7;
+}
+
+/* Lista de features da direita */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--bg-secondary-color); /* Fundo dos cards */
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-item:hover {
+  background-color: #1F1F1F; /* Um pouco mais claro no hover */
+  border-color: var(--primary-color); /* Borda ciano no hover */
+}
+
+.feature-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 1.5rem;
+  background-color: var(--bg-color); /* Fundo do ícone (igual ao da seção) */
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--primary-color); /* Ícone Ciano */
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-family: var(--font-family-primary);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  color: var(--text-muted-color);
+  font-size: 0.95rem;
+  margin: 0;
+}
