@@ -69,3 +69,8 @@
   font-size: 0.9rem;
   margin: 0;
 }
+/* Estilo para a imagem da logo no footer */
+.footer-logo {
+    height: 40px; /* Você pode ajustar essa altura */
+    width: auto;
+}
