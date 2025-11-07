@@ -8,38 +8,47 @@ const Portfolio = () => {
     <section id="portfolio" className="portfolio-section">
       <div className="container">
         <div className="row align-items-center">
-          {/* Coluna da Esquerda: Texto */}
+          
+          {/* Coluna da Esquerda: Texto ATUALIZADO */}
           <div className="col-lg-5">
-            <div className="portfolio-tag">✦ Case de Sucesso</div>
+            {/* Tag atualizada */}
+            <div className="portfolio-tag">✦ Nossos Projetos de Destaque</div>
+            
+            {/* Título atualizado */}
             <h2 className="portfolio-title">
-              Website Corporativo e Sistema de Leads
+              Construindo Soluções Digitais que Geram Resultados Reais
             </h2>
+            
+            {/* Subtítulo atualizado */}
             <p className="portfolio-subtitle">
-              Para o "Cliente X", desenvolvemos um novo portal corporativo focado 
-              em performance e UI/UX, resultando em um aumento de 40% na geração 
-              de leads qualificados.
+              Transformamos ideias complexas em plataformas intuitivas e eficientes. 
+              Veja como nossa abordagem estratégica impulsiona o sucesso de cada parceiro.
             </p>
+            
+            {/* Lista de tópicos atualizada */}
             <ul className="portfolio-checks">
-              <li><span>✓</span> Design UI/UX moderno e responsivo</li>
-              <li><span>✓</span> Otimização SEO para ranking no Google</li>
-              <li><span>✓</span> Integração com CRM para gestão de leads</li>
+              <li><span>✓</span> Desenvolvimento Ágil e Inovador</li>
+              <li><span>✓</span> Foco em Performance e Escalabilidade</li>
+              <li><span>✓</span> Parceria Estratégica e Suporte Contínuo</li>
             </ul>
+            
+            {/* Botão atualizado */}
             <a href="#contato" className="btn btn-outline-primary mt-3">
-              Ver todos os projetos
+              Fale Conosco sobre Seu Projeto
             </a>
           </div>
 
-          {/* Coluna da Direita: Imagem/Visual */}
+          {/* Coluna da Direita: Imagem (sem alteração) */}
           <div className="col-lg-6 offset-lg-1">
-            {/* Placeholder para o "case" */}
             <div className="portfolio-visual">
               <img 
-                src="https://via.placeholder.com/500x450.png?text=Mockup+do+Projeto+Cliente+X" 
-                alt="Projeto Cliente X" 
+                src="/portfolio-case-study.png" 
+                alt="Mockup de um case de sucesso - Cortex Soluções" 
                 className="img-fluid rounded"
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
