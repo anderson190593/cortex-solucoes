@@ -38,7 +38,7 @@ const Features = () => {
             <p className="features-subtitle">
               Construímos experiências digitais que resolvem problemas reais. Da ideia ao lançamento, garantimos que sua visão se torne uma realidade funcional e otimizada.
             </p>
-            <a href="#contato" className="btn btn-primary btn-lg mt-3">
+            <a href="#contato" className="btn btn-primary btn-lg mt-3 mb-3">
               Iniciar um Projeto
             </a>
           </div>
