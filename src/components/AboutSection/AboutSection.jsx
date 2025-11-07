@@ -10,7 +10,7 @@ const AboutSection = () => {
   // --- COLOQUE O CAMINHO DA SUA FOTO AQUI ---
   // Por enquanto, usaremos o placeholder.
   // Se você salvar sua foto na pasta 'public/', o caminho será "/sua-foto.png"
-  const suaFotoUrl = "https://via.placeholder.com/500x500.png?text=Foto+Anderson";
+  const suaFotoUrl = "/foto-anderson.png";
 
   return (
     <section id="sobre" className="about-section">
