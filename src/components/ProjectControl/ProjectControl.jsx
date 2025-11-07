@@ -13,7 +13,7 @@ const ProjectControl = () => {
             {/* Placeholder para o 'dashboard' */}
             <div className="dashboard-visual">
               <img 
-                src="https://via.placeholder.com/500x450.png?text=Mockup+do+Dashboard+do+Projeto" 
+                src="/dashboard-cortex.png" 
                 alt="Dashboard do Projeto" 
                 className="img-fluid rounded"
               />
