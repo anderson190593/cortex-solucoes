@@ -36,7 +36,7 @@ const HeroSection = () => {
           <div className="col-lg-6 text-center">
             {/* Usaremos um placeholder. No futuro, trocamos por uma imagem 3D/tech */}
             <img
-              src="../../../images/hero-image.png"
+              src="/public/cortex-hero.png"
               alt="Soluções Tecnológicas"
               className="img-fluid hero-image"
             />
