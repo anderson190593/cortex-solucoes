@@ -1,63 +1,75 @@
 /* src/components/CTA/CTA.css */
 
 .cta-section {
-  padding: 80px 0;
-  background-color: var(--bg-secondary-color); /* Fundo alternado */
-  border-top: 1px solid var(--border-color);
-  text-align: center;
+  padding: 100px 0;
+  background-color: #050505; /* Fundo ligeiramente diferente */
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
 }
 
 .cta-title {
-  font-family: var(--font-family-primary);
-  font-size: 2.5rem;
-  line-height: 1.3;
-  color: var(--text-color);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--text-main);
   margin-bottom: 1.5rem;
 }
 
 .cta-subtitle {
   font-size: 1.1rem;
-  color: var(--text-muted-color);
-  max-width: 500px;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem;
 }
 
-.cta-section .btn-primary {
-  padding: 1rem 2.5rem; /* Botão grande */
-  font-size: 1.1rem;
+/* O Formulário Estilizado */
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  padding: 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
-/* Adicione este código ao FINAL do seu src/components/CTA/CTA.css */
 
 .contact-form .form-group {
-  text-align: left; /* Alinha os placeholders à esquerda */
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
+/* Inputs Dark Mode */
 .contact-form .form-control {
-  background-color: var(--bg-secondary-color);
-  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
   padding: 1rem;
+  border-radius: 8px;
   font-size: 1rem;
-  color: var(--text-color);
-  border-radius: 0.5rem; /* Cantos arredondados */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Cor do texto do placeholder */
-.contact-form .form-control::placeholder {
-  color: var(--text-muted-color);
-  opacity: 0.8;
-}
-
-/* Efeito de foco (brilho ciano) */
 .contact-form .form-control:focus {
-  background-color: var(--bg-secondary-color);
-  border-color: var(--primary-color);
+  background-color: rgba(0, 242, 255, 0.05);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
   color: #fff;
-  box-shadow: 0 0 10px var(--accent-glow);
   outline: none;
+}
+
+.contact-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Botão Largo */
+.contact-form .btn-primary {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-form { padding: 1.5rem; }
 }

@@ -1,38 +1,110 @@
 /* src/components/AboutSection/AboutSection.css */
 
 .about-section {
-  padding: 100px 0;
-  background-color: var(--bg-secondary-color); /* Fundo alternado */
-  border-top: 1px solid var(--border-color);
+  padding: 120px 0;
+  background-color: var(--bg-deep);
+  position: relative;
   overflow: hidden;
 }
 
+/* Elemento decorativo de fundo */
+.about-section::before {
+  content: 'VISION';
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: 15rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.02);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .about-title {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-heading);
   font-size: 3rem;
-  line-height: 1.3;
-  margin-bottom: 1.5rem;
-  color: var(--text-color); /* Corrigido para variável */
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: var(--text-main);
 }
 
 .about-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-muted-color);
-  line-height: 1.7;
+  font-size: 1.2rem;
+  color: var(--primary); /* Destaque em Ciano */
   margin-bottom: 2rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.about-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  margin-right: 15px;
 }
 
 .about-text {
-  font-size: 1rem;
-  color: var(--text-muted-color);
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
 }
 
-/* Visual da imagem */
+/* Moldura Cibernética da Foto */
+.about-image-wrapper {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* Bordas desenhadas (cantos) */
+.about-image-wrapper::before,
+.about-image-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--primary);
+  transition: all 0.4s ease;
+}
+
+.about-image-wrapper::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.about-image-wrapper::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.about-image-wrapper:hover::before,
+.about-image-wrapper:hover::after {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
 .about-image-wrapper .img-fluid {
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border-radius: 0.75rem; /* Cantos arredondados */
+  border-radius: 4px;
+  filter: grayscale(100%) contrast(1.1); /* Foto preto e branco estilosa */
+  transition: filter 0.5s ease;
+}
+
+.about-image-wrapper:hover .img-fluid {
+  filter: grayscale(0%) contrast(1); /* Cor volta ao passar o mouse */
+}
+
+@media (max-width: 991px) {
+  .about-section::before { font-size: 8rem; left: 0; }
+  .about-image-wrapper { margin-bottom: 3rem; }
 }
