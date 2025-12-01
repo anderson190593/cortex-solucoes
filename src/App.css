@@ -23,34 +23,34 @@
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-active: rgba(0, 242, 255, 0.3);
   
-  /* Variáveis Dinâmicas (Novas) */
+  /* Variáveis Dinâmicas */
   --grid-color: rgba(255, 255, 255, 0.03);
   --gradient-text: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
   --shadow-color: rgba(0,0,0,0.5);
-
   --placeholder-color: rgba(255, 255, 255, 0.5);
 }
 
-/* === TEMA CLARO (Novo) === */
-[data-theme='light'] {
-  --bg-deep: #f0f2f5;       /* Cinza muito claro */
-  --bg-surface: #ffffff;    /* Branco puro */
-  --bg-glass: rgba(255, 255, 255, 0.6);
+/* === TEMA CLARO (Aplicado ao BODY) === */
+/* O seletor agora procura o atributo no próprio body */
+body[data-theme='light'] {
+  --bg-deep: #f0f2f5;       /* Fundo claro Tech */
+  --bg-surface: #ffffff;    /* Cartões brancos */
+  --bg-glass: rgba(255, 255, 255, 0.85); /* Vidro mais opaco no claro */
   
-  --primary: #008ba3;       /* Ciano mais escuro (Teal) para leitura no branco */
-  --primary-glow: rgba(0, 139, 163, 0.2);
+  --primary: #0077b6;       /* Azul Tech mais escuro para leitura */
+  --primary-glow: rgba(0, 119, 182, 0.2);
   
-  --secondary: #6200ea;     /* Roxo vibrante */
-  --secondary-glow: rgba(98, 0, 234, 0.15);
+  --secondary: #7209b7;     /* Roxo forte */
+  --secondary-glow: rgba(114, 9, 183, 0.1);
   
-  --text-main: #1a1a1a;     /* Quase preto */
-  --text-muted: #4b5563;    /* Cinza escuro */
+  --text-main: #111827;     /* Preto suave */
+  --text-muted: #4b5563;    /* Cinza médio */
   
   --border-subtle: rgba(0, 0, 0, 0.1);
-  --border-active: rgba(0, 139, 163, 0.3);
+  --border-active: rgba(0, 119, 182, 0.3);
   
-  --grid-color: rgba(0, 0, 0, 0.03); /* Grade escura sutil */
-  --gradient-text: linear-gradient(135deg, #1a1a1a 0%, #4b5563 100%);
+  --grid-color: rgba(0, 0, 0, 0.04); /* Grade cinza sutil */
+  --gradient-text: linear-gradient(135deg, #111827 0%, #4338ca 100%); /* Gradiente Azul/Preto */
   --shadow-color: rgba(0,0,0,0.1);
   --placeholder-color: rgba(0, 0, 0, 0.5);
 }
@@ -64,9 +64,9 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+  transition: background-color 0.3s ease, color 0.3s ease;
   
-  /* Grid Global usando a variável dinâmica */
+  /* Grid Global Futurista */
   background-image: 
     linear-gradient(var(--grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
@@ -81,28 +81,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Scrollbar Personalizada */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
-
 /* Utilitários de Botão Modernos */
 .btn-primary {
   background: transparent;
   color: var(--primary);
   border: 1px solid var(--primary);
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); /* Sutil no claro, glow no escuro */
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
   padding: 0.8rem 2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -125,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  color: #fff; /* Texto branco no hover sempre fica bom com bg colorido */
+  color: #fff; 
   box-shadow: 0 0 30px var(--primary-glow);
   border-color: var(--primary);
 }
@@ -137,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-outline-primary {
   color: var(--text-muted);
   border: 1px solid var(--border-subtle);
-  background: rgba(125, 125, 125, 0.05); /* Funciona em ambos os temas */
+  background: rgba(125, 125, 125, 0.05);
   padding: 0.8rem 2rem;
   font-weight: 600;
   border-radius: 4px;
