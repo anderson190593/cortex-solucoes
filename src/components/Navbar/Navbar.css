@@ -128,25 +128,7 @@
 
 /* Mobile Layout */
 @media (max-width: 991px) {
-  .navbar-collapse {
-    background: var(--bg-surface);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid var(--border-subtle);
-    margin-top: 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    
-    /* Garante que o menu não cause overflow */
-    max-width: 100%; 
-    overflow-x: hidden;
-    
-    animation: slideDown 0.3s ease forwards;
-  }
-
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* ... regras anteriores do collapse ... */
 
   .navbar-actions {
     margin-top: 1.5rem;
@@ -160,8 +142,12 @@
     margin: 0;
   }
 
+  /* --- CORREÇÃO AQUI: Botão de Tema --- */
   .navbar-actions .theme-toggler {
+    width: 40px !important;  /* Força a largura fixa */
+    height: 40px !important; /* Força a altura fixa */
     margin-top: 1rem;
-    align-self: center;
+    align-self: center;      /* Centraliza no meio da tela */
+    border-radius: 50%;      /* Garante que fique redondo */
   }
 }
