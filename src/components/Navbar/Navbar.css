@@ -2,12 +2,11 @@
 
 .navbar-custom {
   padding: 1rem 0;
-  /* Remove a cor fixa e usa vidro com fundo adaptável */
   background: var(--bg-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
-  position: fixed; /* Fixa no topo */
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -22,7 +21,7 @@
 
 .navbar-logo {
   height: 40px;
-  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3)); /* Brilho no logo */
+  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3));
 }
 
 /* Links de Navegação */
@@ -34,13 +33,13 @@
   margin: 0 1rem;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer; /* Garante que pareça clicável */
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--primary) !important;
 }
 
-/* Linha animada embaixo do link */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -57,16 +56,50 @@
   width: 100%;
 }
 
-/* Botão Mobile */
+/* --- BOTÃO HAMBÚRGUER CUSTOMIZADO (SOLUÇÃO DO ÍCONE) --- */
 .navbar-toggler {
-  border: none;
-  color: var(--primary);
-}
-.navbar-toggler:focus {
-  box-shadow: none;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* Espaço entre as linhas */
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Ajuste do botão theme-toggler para ficar neon */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--primary-glow);
+  outline: none;
+}
+
+/* As linhas do ícone */
+.toggler-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary); /* COR NEON GARANTIDA */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px var(--primary-glow);
+}
+
+/* Efeito de rotação quando aberto (X) - Opcional, mas estiloso */
+.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- TEMA TOGGLER --- */
 .theme-toggler {
   background: transparent;
   border: 1px solid var(--border-subtle);
@@ -87,6 +120,7 @@
   transform: rotate(15deg);
 }
 
+/* Mobile Layout */
 @media (max-width: 991px) {
   .navbar-collapse {
     background: var(--bg-surface);
@@ -95,5 +129,32 @@
     border: 1px solid var(--border-subtle);
     margin-top: 1rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* Animação suave de entrada */
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Ajuste dos botões no mobile */
+  .navbar-actions {
+    margin-top: 1.5rem;
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+
+  .navbar-actions .btn {
+    width: 100%;
+    margin: 0; /* Remove margens laterais antigas */
+  }
+
+  /* Centraliza o botão de tema no mobile */
+  .navbar-actions .theme-toggler {
+    margin-top: 1rem;
+    align-self: center;
   }
 }
