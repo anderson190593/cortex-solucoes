@@ -2,8 +2,9 @@
 
 .navbar-custom {
   padding: 1rem 0;
-  background: rgba(3, 3, 5, 0.6); /* Fundo semi-transparente */
-  backdrop-filter: blur(12px);     /* O efeito de vidro */
+  /* Remove a cor fixa e usa vidro com fundo adaptável */
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
   position: fixed; /* Fixa no topo */

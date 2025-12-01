@@ -2,7 +2,8 @@
 
 .cta-section {
   padding: 100px 0;
-  background-color: #050505; /* Fundo ligeiramente diferente */
+  /* Muda de #050505 para algo dinâmico */
+  background-color: var(--bg-surface); 
   border-top: 1px solid var(--border-subtle);
   position: relative;
 }

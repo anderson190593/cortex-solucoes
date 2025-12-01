@@ -97,12 +97,18 @@
   transform: scale(1.1) rotate(-5deg);
 }
 
-.feature-title {
+.features-title {
+  /* ... mantenha o tamanho e fonte ... */
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+
+  /* USAR VARIÁVEL AGORA: */
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .feature-description {
