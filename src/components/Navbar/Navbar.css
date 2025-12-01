@@ -6,10 +6,14 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
+  
+  /* CORREÇÃO DO SCROLL HORIZONTAL: */
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
+  right: 0;   /* Estica de ponta a ponta sem estourar a tela */
+  width: auto; /* Remove largura fixa problemática */
+  
   z-index: 1000;
   transition: all 0.3s ease;
 }
@@ -24,7 +28,7 @@
   filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3));
 }
 
-/* Links de Navegação */
+/* Links */
 .nav-link {
   font-family: var(--font-body);
   color: var(--text-muted) !important;
@@ -33,7 +37,7 @@
   margin: 0 1rem;
   position: relative;
   transition: color 0.3s ease;
-  cursor: pointer; /* Garante que pareça clicável */
+  cursor: pointer;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -56,10 +60,11 @@
   width: 100%;
 }
 
-/* --- BOTÃO HAMBÚRGUER CUSTOMIZADO (SOLUÇÃO DO ÍCONE) --- */
+/* --- BOTÃO HAMBÚRGUER (CORREÇÃO UX) --- */
 .navbar-toggler {
-  border: 1px solid var(--border-subtle);
-  background: transparent;
+  /* Borda neon visível */
+  border: 1px solid var(--primary);
+  background: rgba(0, 242, 255, 0.05); /* Fundo sutil */
   width: 44px;
   height: 44px;
   padding: 0;
@@ -67,28 +72,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px; /* Espaço entre as linhas */
+  gap: 6px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 2px var(--primary-glow);
+  box-shadow: 0 0 15px var(--primary-glow);
   outline: none;
 }
 
-/* As linhas do ícone */
+/* Linhas do ícone bem visíveis */
 .toggler-icon {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--primary); /* COR NEON GARANTIDA */
+  background-color: var(--primary); /* Cor Neon */
   border-radius: 2px;
   transition: all 0.3s ease;
   box-shadow: 0 0 5px var(--primary-glow);
 }
 
-/* Efeito de rotação quando aberto (X) - Opcional, mas estiloso */
+/* Efeito de "X" quando aberto */
 .navbar-toggler:not(.collapsed) .toggler-icon:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -99,7 +105,7 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* --- TEMA TOGGLER --- */
+/* --- THEME TOGGLER --- */
 .theme-toggler {
   background: transparent;
   border: 1px solid var(--border-subtle);
@@ -130,7 +136,10 @@
     margin-top: 1rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     
-    /* Animação suave de entrada */
+    /* Garante que o menu não cause overflow */
+    max-width: 100%; 
+    overflow-x: hidden;
+    
     animation: slideDown 0.3s ease forwards;
   }
 
@@ -139,7 +148,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Ajuste dos botões no mobile */
   .navbar-actions {
     margin-top: 1.5rem;
     flex-direction: column;
@@ -149,10 +157,9 @@
 
   .navbar-actions .btn {
     width: 100%;
-    margin: 0; /* Remove margens laterais antigas */
+    margin: 0;
   }
 
-  /* Centraliza o botão de tema no mobile */
   .navbar-actions .theme-toggler {
     margin-top: 1rem;
     align-self: center;
