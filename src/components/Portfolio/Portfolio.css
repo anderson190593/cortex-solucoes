@@ -10,10 +10,10 @@
 .portfolio-tag {
   display: inline-block;
   padding: 0.5rem 1.2rem;
-  background: rgba(112, 0, 255, 0.1); /* Fundo Roxo Transparente */
+  background: rgba(112, 0, 255, 0.1); 
   border: 1px solid rgba(112, 0, 255, 0.3);
   border-radius: 50px;
-  color: #bd8aff; /* Lilás claro */
+  color: #bd8aff;
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 1.5rem;
@@ -71,31 +71,41 @@
 /* Imagem do Case */
 .portfolio-visual {
   position: relative;
-}
-
-/* Elemento decorativo atrás da imagem */
-.portfolio-visual::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--border-subtle);
-  border-radius: 12px;
-  z-index: 0;
+  /* REMOVIDO: O ::before que criava a borda extra foi deletado daqui para limpar o visual */
 }
 
 .portfolio-visual .img-fluid {
   position: relative;
   z-index: 1;
   border-radius: 12px;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-subtle); /* Borda sutil padrão, igual às outras */
+  box-shadow: 0 25px 50px -12px var(--shadow-color);
   transition: transform 0.4s ease;
 }
 
 .portfolio-visual:hover .img-fluid {
-  transform: scale(1.02) translate(-5px, -5px); /* Efeito de "descolar" do fundo */
+  transform: scale(1.02) translateY(-5px); /* Efeito de "descolar" do fundo */
   border-color: var(--secondary);
+}
+
+/* --- RESPONSIVIDADE (Correção do Layout Mobile) --- */
+@media (max-width: 991px) {
+  .portfolio-section {
+    text-align: center; /* Centraliza textos */
+  }
+
+  .portfolio-checks {
+    display: inline-block; /* Mantém os checks alinhados visualmente */
+    text-align: left;
+  }
+
+  /* AQUI ESTÁ A CORREÇÃO DA SOBREPOSIÇÃO */
+  .portfolio-visual {
+    margin-top: 4rem; /* Empurra a imagem para baixo, separando do botão */
+    padding: 0 1rem;  /* Garante que não encoste nas bordas da tela */
+  }
+  
+  .portfolio-title {
+    font-size: 2.5rem;
+  }
 }
