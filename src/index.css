@@ -1,14 +1,12 @@
 /* src/index.css */
 
-/* --- ADICIONE ESTA NOVA REGRA --- */
 html {
-  /* Esta é a mágica! */
   scroll-behavior: smooth;
+  overflow-x: hidden; /* O segredo: impede scroll lateral no nível raiz */
+  width: 100%;
 }
-/* --------------------------------- */
 
 :root {
-  /* Garante que as fontes sejam suaves */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,16 +16,16 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-width: 320px; /* Garante uma largura mínima para mobile */
+  min-width: 320px;
+  overflow-x: hidden; /* Reforça a proibição no corpo */
+  width: 100%;
+  position: relative;
 }
 
-/* * ESTA É A CORREÇÃO MAIS IMPORTANTE:
- * Remove qualquer centralização ou largura máxima 
- * que o Vite tenha colocado no nosso app.
- */
 #root {
   max-width: none;
   margin: 0;
   padding: 0;
   text-align: left;
+  overflow-x: hidden; /* Garante que a aplicação React também não vaze */
 }
