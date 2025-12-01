@@ -1,121 +1,112 @@
 /* src/components/HeroSection/HeroSection.css */
 
 .hero-section {
-  /* 1. CONFIGURAÇÃO DE ALTURA E FLEXBOX (A MÁGICA ACONTECE AQUI) */
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Organiza o conteúdo em uma coluna (de cima para baixo) */
-  min-height: 100vh; /* GARANTE QUE A SEÇÃO TENHA NO MÍNIMO 100% DA ALTURA DA TELA */
-  
-  /* Padding para o Navbar flutuante e para a base */
-  padding-top: 140px; /* Espaço para o Navbar (140px é um bom começo) */
-  padding-bottom: 60px;
-  
-  background-color: var(--bg-color);
-  overflow: hidden; /* Evita barras de rolagem laterais */
-}
-
-/* 2. FAZ O CONTAINER PRINCIPAL CRESCER */
-.hero-section > .container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Faz o container ocupar todo o espaço vertical disponível */
-}
-
-/* 3. FAZ A LINHA DE CONTEÚDO (TEXTO + IMAGEM) CRESCER */
-.hero-section .row.align-items-center {
-  flex-grow: 1; /* Faz esta linha crescer, empurrando os stats para baixo */
-  /* align-items-center (do Bootstrap) já centraliza verticalmente o texto e a imagem */
-}
-
-
-.hero-content {
-  text-align: left;
-}
-
-/* --- ADICIONE ESTE NOVO BLOCO --- */
-.hero-text-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* --- O resto do código permanece o mesmo --- */
-
-/* Tag de Destaque */
-.hero-tag {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--bg-secondary-color);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  color: var(--text-muted-color);
-  font-family: var(--font-family-secondary);
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-.hero-tag span {
-  color: var(--secondary-color); /* Verde neon */
-  margin-right: 0.5rem;
-}
-
-/* Título Principal */
-.hero-title {
-  font-family: var(--font-family-primary);
-  font-size: 4.5rem; 
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text-color);
-  margin-bottom: 1.5rem;
-}
-
-/* Subtítulo */
-.hero-subtitle {
-  font-family: var(--font-family-secondary);
-  font-size: 1.15rem;
-  color: var(--text-muted-color);
-  line-height: 1.7;
-  max-width: 90%; 
-  margin-bottom: 2rem;
-}
-
-/* Imagem */
-.hero-image {
-  animation: floatAnimation 4s ease-in-out infinite;
-}
-
-@keyframes floatAnimation {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* Seção de Estatísticas */
-.hero-stats {
-  /* O flex-grow na linha de conteúdo já empurra isso para baixo */
-  padding-top: 40px;
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  flex-shrink: 0; /* Evita que a seção de stats encolha */
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 80px; /* Compensa a navbar fixa */
+  overflow: hidden;
+}
+
+/* Efeito de luz de fundo (Glow spot) */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 242, 255, 0.05);
+  border: 1px solid var(--border-active);
+  border-radius: 50px;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.hero-title {
+  font-size: 4rem; /* Maior e mais impactante */
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  
+  /* Gradiente no Texto */
+  background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 90%;
+  margin-bottom: 2.5rem;
+  border-left: 2px solid var(--secondary);
+  padding-left: 1.5rem;
+}
+
+/* Imagem Flutuante */
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  animation: floatHero 6s ease-in-out infinite;
+}
+
+@keyframes floatHero {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Estatísticas Glass */
+.hero-stats {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
 }
 
 .stat-number {
-  font-family: var(--font-family-primary);
+  display: block;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary-color); /* Ciano */
+  color: var(--primary);
+  text-shadow: 0 0 20px var(--primary-glow);
 }
 
 .stat-label {
-  font-family: var(--font-family-secondary);
-  font-size: 1rem;
-  color: var(--text-muted-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
 }
 
+/* Responsividade */
+@media (max-width: 991px) {
+  .hero-title { font-size: 2.8rem; }
+  .hero-section { text-align: center; padding-top: 120px; }
+  .hero-subtitle { 
+    border-left: none; 
+    padding-left: 0; 
+    margin: 0 auto 2rem auto;
+  }
+  .hero-text-column { margin-bottom: 3rem; }
+}

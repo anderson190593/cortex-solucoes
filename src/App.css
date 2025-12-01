@@ -1,111 +1,131 @@
 /* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap');
 
-/* --- Variáveis de Cores (Nova Paleta) --- */
 :root {
-  /* Fontes (inspiradas no estilo moderno) */
-  --font-family-primary: 'Poppins', sans-serif; /* Ou outra fonte sans-serif moderna que combine */
-  --font-family-secondary: 'Inter', sans-serif;
+  /* Fontes Tech */
+  --font-body: 'Outfit', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
 
-  /* TEMA ESCURO (Dark Theme - o foco principal agora) */
-  --bg-color-dark: #0A0A0A; /* Fundo preto bem escuro */
-  --bg-secondary-dark: #1A1A1A; /* Para seções ou cards */
-  --text-color-dark: #E0E0E0; /* Texto claro */
-  --text-muted-dark: #888888; /* Texto secundário/cinza */
-  --primary-color-dark: #00BFFF; /* Ciano vibrante */
-  --secondary-color-dark: #39FF14; /* Verde neon para destaque secundário */
-  --border-color-dark: #2A2A2A; /* Bordas e divisores */
-  --accent-glow-dark: rgba(0, 191, 255, 0.3); /* Brilho ciano */
-
-  /* TEMA CLARO (Light Theme - manteremos simples por enquanto, foco no dark) */
-  --bg-color-light: #F0F0F0;
-  --bg-secondary-light: #FFFFFF;
-  --text-color-light: #1A1A1A;
-  --text-muted-light: #666666;
-  --primary-color-light: #007bff;
-  --secondary-color-light: #28a745;
-  --border-color-light: #E0E0E0;
-  --accent-glow-light: rgba(0, 123, 255, 0.2);
-
-  /* Variáveis globais baseadas no tema ativo */
-  --bg-color: var(--bg-color-dark);
-  --bg-secondary-color: var(--bg-secondary-dark);
-  --text-color: var(--text-color-dark);
-  --text-muted-color: var(--text-muted-dark);
-  --primary-color: var(--primary-color-dark);
-  --secondary-color: var(--secondary-color-dark);
-  --border-color: var(--border-color-dark);
-  --accent-glow: var(--accent-glow-dark);
+  /* PALETA CYBER DARK */
+  --bg-deep: #030305;       /* Preto quase absoluto */
+  --bg-surface: #0e0e12;    /* Cinza muito escuro para cards */
+  --bg-glass: rgba(14, 14, 18, 0.7);
+  
+  --primary: #00f2ff;       /* Ciano Elétrico */
+  --primary-glow: rgba(0, 242, 255, 0.4);
+  
+  --secondary: #7000ff;     /* Roxo Neon */
+  --secondary-glow: rgba(112, 0, 255, 0.4);
+  
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(0, 242, 255, 0.3);
 }
 
-/* Aplica o tema claro quando 'data-theme' é 'light' */
-[data-theme='light'] {
-  --bg-color: var(--bg-color-light);
-  --bg-secondary-color: var(--bg-secondary-light);
-  --text-color: var(--text-color-light);
-  --text-muted-color: var(--text-muted-light);
-  --primary-color: var(--primary-color-light);
-  --secondary-color: var(--secondary-color-light);
-  --border-color: var(--border-color-light);
-  --accent-glow: var(--accent-glow-light);
-}
-
-/* --- Estilos Base --- */
+/* Reset Básico */
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-family-secondary); /* Corpo de texto */
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de tema */
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  
+  /* Grid Global Futurista no Fundo */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-primary); /* Títulos */
-  color: var(--text-color);
+  font-family: var(--font-heading);
+  color: var(--text-main);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Links globais */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
-a:hover {
-  color: var(--secondary-color);
-}
-
-/* Estilos de botões básicos do Bootstrap para se adequar ao tema */
+/* Utilitários de Botão Modernos */
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: #fff;
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+  padding: 0.8rem 2rem;
   font-weight: 600;
-  padding: 0.75rem 1.75rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  border-radius: 4px; /* Cantos levemente arredondados, mais técnico */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 0%; height: 100%;
+  background: var(--primary);
+  z-index: -1;
+  transition: width 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-color); /* Manter a cor base no hover */
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px var(--accent-glow); /* Adicionar um brilho no hover */
+  color: #000;
+  box-shadow: 0 0 30px var(--primary-glow);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover::before {
+  width: 100%;
 }
 
 .btn-outline-primary {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255,255,255,0.02);
+  padding: 0.8rem 2rem;
   font-weight: 600;
-  padding: 0.75rem 1.75rem;
-  border-radius: 0.5rem;
-  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
 .btn-outline-primary:hover {
-  color: #fff;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px var(--accent-glow);
+  border-color: var(--text-main);
+  color: var(--text-main);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Animações Globais */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 242, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
 }

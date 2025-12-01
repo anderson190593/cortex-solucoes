@@ -1,148 +1,98 @@
 /* src/components/Navbar/Navbar.css */
 
-.logo-nav {
-  width: 150px;
-  height: auto;
-}
-
 .navbar-custom {
-  /* Fundo transparente e espaçamento */
-  background-color: transparent;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border-color); /* Borda sutil como na imagem */
-  position: absolute; /* Flutuante, não "empurra" o conteúdo */
+  padding: 1rem 0;
+  background: rgba(3, 3, 5, 0.6); /* Fundo semi-transparente */
+  backdrop-filter: blur(12px);     /* O efeito de vidro */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: fixed; /* Fixa no topo */
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-/* 1. Logo */
 .navbar-brand {
-  font-family: var(--font-family-primary); /* Fonte Poppins */
-  font-weight: 700;
-  font-size: 1.75rem;
-  color: #fff; /* O logo no exemplo é branco */
-}
-.navbar-brand:hover {
-  color: var(--primary-color);
+  display: flex;
+  align-items: center;
 }
 
-/* 3. Links Centrais */
-.nav-item {
-  margin: 0 0.75rem;
+.navbar-logo {
+  height: 40px;
+  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3)); /* Brilho no logo */
 }
 
+/* Links de Navegação */
 .nav-link {
-  font-family: var(--font-family-secondary); /* Fonte Inter */
-  color: var(--text-muted-color);
+  font-family: var(--font-body);
+  color: var(--text-muted) !important;
   font-weight: 500;
+  font-size: 0.95rem;
+  margin: 0 1rem;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #fff; /* Links ficam brancos no hover */
+.nav-link:hover, .nav-link.active {
+  color: var(--primary) !important;
 }
 
-/* 4. Ações à Direita */
-
-/* Ajustando os botões para o padrão da imagem (menores) */
-.navbar-actions .btn {
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
+/* Linha animada embaixo do link */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--primary);
 }
 
-/* Botão de Contato (outline) */
-.navbar-actions .btn-outline-primary {
-  color: var(--text-muted-color);
-  border-color: var(--border-color);
-}
-.navbar-actions .btn-outline-primary:hover {
-  color: #fff;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 0 15px var(--accent-glow);
+.nav-link:hover::after {
+  width: 100%;
 }
 
-/* Botão de Serviços (primário, ciano) */
-.navbar-actions .btn-primary {
-  color: #000; /* Texto escuro no botão ciano para contraste */
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+/* Botão Mobile */
+.navbar-toggler {
+  border: none;
+  color: var(--primary);
 }
-.navbar-actions .btn-primary:hover {
-  box-shadow: 0 0 15px var(--accent-glow);
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
-/* Substitua a regra .theme-toggler existente por esta: */
-
-/* Seletor de Tema */
+/* Ajuste do botão theme-toggler para ficar neon */
 .theme-toggler {
   background: transparent;
-  border: none;
-  /* --- MUDANÇA AQUI --- */
-  color: var(--primary-color); /* Ciano neon! */
-  padding: 0;
-  opacity: 0.8;
-  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s;
 }
+
 .theme-toggler:hover {
-  color: #fff; /* Branco brilhante no hover */
-  opacity: 1;
-  transform: scale(1.1) rotate(15deg); /* Efeito "tech" sutil */
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+  transform: rotate(15deg);
 }
 
-/* 2. Estilo do Botão Sanduíche (Mobile) */
-.navbar-toggler {
-  border-color: var(--border-color);
-}
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-/* Estilizando o menu mobile (hambúrguer) quando aberto */
-@media (max-width: 991.98px) {
-  
-  /* Adiciona o fundo sólido ao "dropdown" */
+@media (max-width: 991px) {
   .navbar-collapse {
-    background-color: var(--bg-secondary-color);
+    background: var(--bg-surface);
     padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
     margin-top: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-  }
-
-  /* Garante que os botões de ação ocupem a largura total */
-  .navbar-actions {
-    margin-top: 1.5rem;
-    flex-direction: column;
-    align-items: stretch !important; /* Força o alinhamento */
-  }
-
-  .navbar-actions .btn {
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-  
-  .navbar-actions .btn-outline-primary {
-      margin-right: 0 !important; /* Remove a margem direita do botão */
-  }
-
-  /* Centraliza o seletor de tema */
-  .navbar-actions .theme-toggler {
-    margin-top: 1rem;
-    align-self: center; 
-  }
-}
-/* Estilo para a imagem da logo */
-.navbar-logo {
-    height: 40px; /* Você pode ajustar essa altura */
-    width: auto;
-}
-
-/* Ajuste para o logo no menu mobile */
-@media (max-width: 991.98px) {
-  .navbar-brand .navbar-logo {
-      height: 35px; /* Um pouco menor no mobile */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 }
