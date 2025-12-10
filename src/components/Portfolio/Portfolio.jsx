@@ -48,7 +48,7 @@ const Portfolio = () => {
             <div className="portfolio-visual">
               {/* Aqui vai o print real do site dela */}
               <img
-                src="/case-psi.png"
+                src="./case-psi.png"
                 alt="Case Psi Sem Tabu"
                 className="img-fluid rounded"
                 style={{ border: "2px solid var(--border-active)" }}
