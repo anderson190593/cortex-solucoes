@@ -10,8 +10,8 @@ const projects = [
     description: "Plataforma de acolhimento psicológico com foco em experiência do usuário. Transformamos um Linktree básico em uma máquina de conversão com design imersivo e agendamento direto.",
     techs: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
     link: "https://psi-sem-tabu.vercel.app/",
-    image: "/case-psi.png",
-    reverse: false // Texto esquerda, Imagem direita
+    image: "/case-psi.png", // Certifique-se que esta imagem existe na pasta public
+    reverse: false // Texto na esquerda, Imagem na direita
   },
   {
     id: 2,
@@ -20,8 +20,8 @@ const projects = [
     description: "Landing Page de alta conversão para moda masculina. Integração inteligente de carrinho de compras com checkout automático via WhatsApp, focado em fechar vendas rapidamente.",
     techs: ["HTML5 Semântico", "CSS3 Customizado", "JavaScript ES6+", "Bootstrap 5"],
     link: "https://www.alphaoltfits.me/",
-    image: "/case-alpha.png",
-    reverse: true // Imagem esquerda, Texto direita
+    image: "/case-alpha.png", // A imagem que você vai salvar agora
+    reverse: true // Imagem na esquerda, Texto na direita (Zig-Zag)
   },
   {
     id: 3,
