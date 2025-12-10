@@ -10,8 +10,8 @@ const projects = [
     description: "Plataforma de acolhimento psicológico com foco em experiência do usuário. Transformamos um Linktree básico em uma máquina de conversão com design imersivo e agendamento direto.",
     techs: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
     link: "https://psi-sem-tabu.vercel.app/",
-    image: "/case-psi.png", // Certifique-se que esta imagem existe na pasta public
-    reverse: false // Texto na esquerda, Imagem na direita
+    image: "/case-psi.png",
+    reverse: false // Texto esquerda, Imagem direita
   },
   {
     id: 2,
@@ -20,8 +20,18 @@ const projects = [
     description: "Landing Page de alta conversão para moda masculina. Integração inteligente de carrinho de compras com checkout automático via WhatsApp, focado em fechar vendas rapidamente.",
     techs: ["HTML5 Semântico", "CSS3 Customizado", "JavaScript ES6+", "Bootstrap 5"],
     link: "https://www.alphaoltfits.me/",
-    image: "/case-alpha.png", // A imagem que você vai salvar agora
-    reverse: true // Imagem na esquerda, Texto na direita (Zig-Zag)
+    image: "/case-alpha.png",
+    reverse: true // Imagem esquerda, Texto direita
+  },
+  {
+    id: 3,
+    tag: "Personal Branding",
+    title: "Anderson Roberto",
+    description: "O hub digital do fundador. Um espaço minimalista que centraliza artigos, projetos e a visão técnica que guia a Cortex. Performance extrema e identidade visual marcante.",
+    techs: ["React", "UX/UI Design", "SEO Técnico", "Blog"], // Ajuste as techs se necessário
+    link: "https://www.andersonroberto.com.br/",
+    image: "/case-anderson.png", // Não esqueça de salvar o print com este nome!
+    reverse: false // Volta para Texto esquerda, Imagem direita
   }
 ];
 
