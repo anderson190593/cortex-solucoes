@@ -8,8 +8,6 @@ const Portfolio = () => {
     <section id="portfolio" className="portfolio-section">
       <div className="container">
         <div className="row align-items-center">
-
-          
           <div className="col-lg-5">
             <div className="portfolio-tag">✦ Case de Sucesso</div>
             <h2 className="portfolio-title">
@@ -48,7 +46,7 @@ const Portfolio = () => {
             <div className="portfolio-visual">
               {/* Aqui vai o print real do site dela */}
               <img
-                src="./case-psi.png"
+                src="/case-psi.png"
                 alt="Case Psi Sem Tabu"
                 className="img-fluid rounded"
                 style={{ border: "2px solid var(--border-active)" }}
