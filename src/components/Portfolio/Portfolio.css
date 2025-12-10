@@ -1,21 +1,44 @@
 /* src/components/Portfolio/Portfolio.css */
 
 .portfolio-section {
-  padding: 120px 0;
+  padding: 100px 0;
   border-top: 1px solid var(--border-subtle);
   background: linear-gradient(to bottom, var(--bg-deep), #050508);
 }
 
-/* A Tag "Nossos Projetos" */
+.portfolio-header-tag {
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Espaçamento entre projetos */
+.project-row {
+  margin-bottom: 8rem; /* Espaço generoso entre um case e outro */
+}
+
+.project-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Tags e Títulos */
 .portfolio-tag {
   display: inline-block;
-  padding: 0.5rem 1.2rem;
+  padding: 0.4rem 1rem;
   background: rgba(112, 0, 255, 0.1); 
   border: 1px solid rgba(112, 0, 255, 0.3);
   border-radius: 50px;
-  color: #bd8aff;
+  color: #bd8aff; /* Tom roxo claro */
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -23,89 +46,112 @@
 
 .portfolio-title {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1.2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--text-main);
 }
 
 .portfolio-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-/* Lista de Checks */
+/* Lista de Tecnologias */
 .portfolio-checks {
   list-style: none;
   padding-left: 0;
   margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .portfolio-checks li {
   color: var(--text-main);
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
 }
 
 .portfolio-checks li span {
-  color: var(--secondary); /* Roxo Neon */
+  color: var(--primary); /* Ciano Neon */
   font-weight: bold;
-  font-size: 1.2rem;
-  margin-right: 1rem;
-  
-  /* Círculo em volta do check */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: rgba(112, 0, 255, 0.15);
-  border-radius: 50%;
-  border: 1px solid rgba(112, 0, 255, 0.3);
+  margin-right: 8px;
 }
 
-/* Imagem do Case */
+/* Mockup do Browser (A Moldura da Imagem) */
 .portfolio-visual {
   position: relative;
-  /* REMOVIDO: O ::before que criava a borda extra foi deletado daqui para limpar o visual */
+  transition: transform 0.5s ease;
 }
 
-.portfolio-visual .img-fluid {
-  position: relative;
-  z-index: 1;
+.portfolio-visual:hover {
+  transform: translateY(-10px);
+}
+
+.browser-mockup {
+  background: #1a1a1a;
   border-radius: 12px;
-  border: 1px solid var(--border-subtle); /* Borda sutil padrão, igual às outras */
-  box-shadow: 0 25px 50px -12px var(--shadow-color);
-  transition: transform 0.4s ease;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
 }
 
-.portfolio-visual:hover .img-fluid {
-  transform: scale(1.02) translateY(-5px); /* Efeito de "descolar" do fundo */
-  border-color: var(--secondary);
+.browser-dots {
+  padding: 12px 15px;
+  background: #111;
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid #333;
 }
 
-/* --- RESPONSIVIDADE (Correção do Layout Mobile) --- */
+.browser-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.browser-dots span:nth-child(1) { background-color: #ff5f56; } /* Vermelho Mac */
+.browser-dots span:nth-child(2) { background-color: #ffbd2e; } /* Amarelo Mac */
+.browser-dots span:nth-child(3) { background-color: #27c93f; } /* Verde Mac */
+
+.browser-mockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.portfolio-visual:hover .browser-mockup img {
+  opacity: 1;
+}
+
+/* Responsividade */
 @media (max-width: 991px) {
-  .portfolio-section {
-    text-align: center; /* Centraliza textos */
-  }
-
-  .portfolio-checks {
-    display: inline-block; /* Mantém os checks alinhados visualmente */
-    text-align: left;
-  }
-
-  /* AQUI ESTÁ A CORREÇÃO DA SOBREPOSIÇÃO */
-  .portfolio-visual {
-    margin-top: 4rem; /* Empurra a imagem para baixo, separando do botão */
-    padding: 0 1rem;  /* Garante que não encoste nas bordas da tela */
+  .project-row {
+    text-align: center;
+    margin-bottom: 5rem;
   }
   
-  .portfolio-title {
-    font-size: 2.5rem;
+  .portfolio-checks {
+    justify-content: center;
+  }
+
+  .portfolio-visual {
+    margin-top: 3rem;
+  }
+  
+  /* Remove o ZigZag no mobile para ficar tudo um embaixo do outro */
+  .flex-row-reverse {
+    flex-direction: row !important;
   }
 }

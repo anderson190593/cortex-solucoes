@@ -1,59 +1,88 @@
 // src/components/Portfolio/Portfolio.jsx
+import React from 'react';
+import './Portfolio.css';
 
-import React from "react";
-import "./Portfolio.css";
+const projects = [
+  {
+    id: 1,
+    tag: "Saúde & Bem-estar",
+    title: "Psi Sem Tabu",
+    description: "Plataforma de acolhimento psicológico com foco em experiência do usuário. Transformamos um Linktree básico em uma máquina de conversão com design imersivo e agendamento direto.",
+    techs: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
+    link: "https://psi-sem-tabu.vercel.app/",
+    image: "/case-psi.png", // Certifique-se que esta imagem existe na pasta public
+    reverse: false // Texto na esquerda, Imagem na direita
+  },
+  {
+    id: 2,
+    tag: "E-commerce Premium",
+    title: "Alpha Outfits",
+    description: "Landing Page de alta conversão para moda masculina. Integração inteligente de carrinho de compras com checkout automático via WhatsApp, focado em fechar vendas rapidamente.",
+    techs: ["HTML5 Semântico", "CSS3 Customizado", "JavaScript ES6+", "Bootstrap 5"],
+    link: "https://www.alphaoltfits.me/",
+    image: "/case-alpha.png", // A imagem que você vai salvar agora
+    reverse: true // Imagem na esquerda, Texto na direita (Zig-Zag)
+  }
+];
 
 const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-5">
-            <div className="portfolio-tag">✦ Case de Sucesso</div>
-            <h2 className="portfolio-title">
-              De um Linktree básico a uma{" "}
-              <span style={{ color: "var(--primary)" }}>
-                Máquina de Conversão
-              </span>
-              .
-            </h2>
-            <p className="portfolio-subtitle">
-              O projeto <strong>Psi Sem Tabu</strong> precisava transmitir
-              acolhimento e profissionalismo. Criamos uma experiência imersiva
-              com React e Framer Motion que aumentou a percepção de valor da
-              profissional instantaneamente.
-            </p>
-            <ul className="portfolio-checks">
-              <li>
-                <span>✓</span> Design Responsivo e Animações Fluidas
-              </li>
-              <li>
-                <span>✓</span> Otimização SEO para Divinópolis/MG
-              </li>
-              <li>
-                <span>✓</span> Integração Direta com WhatsApp
-              </li>
-            </ul>
-            <a
-              href="https://psi-sem-tabu.vercel.app/"
-              target="_blank"
-              className="btn btn-primary mt-3"
-            >
-              Ver Projeto Online
-            </a>
-          </div>
-          <div className="col-lg-6 offset-lg-1">
-            <div className="portfolio-visual">
-              {/* Aqui vai o print real do site dela */}
-              <img
-                src="/case-psi.png"
-                alt="Case Psi Sem Tabu"
-                className="img-fluid rounded"
-                style={{ border: "2px solid var(--border-active)" }}
-              />
-            </div>
-          </div>
+        
+        {/* Cabeçalho da Seção */}
+        <div className="text-center mb-5">
+          <div className="portfolio-header-tag">✦ Nossos Cases</div>
+          <h2 className="section-title mb-3">Obras de Arte Digitais</h2>
+          <p className="text-muted" style={{maxWidth: '600px', margin: '0 auto'}}>
+            Não entregamos apenas código. Entregamos resultados, performance e design que posiciona sua marca no topo.
+          </p>
         </div>
+
+        {/* Loop dos Projetos */}
+        <div className="portfolio-list">
+          {projects.map((project) => (
+            <div key={project.id} className={`row align-items-center project-row ${project.reverse ? 'flex-row-reverse' : ''}`}>
+              
+              {/* Texto do Projeto */}
+              <div className="col-lg-5 mb-4 mb-lg-0">
+                <div className="project-content">
+                  <div className="portfolio-tag">{project.tag}</div>
+                  <h3 className="portfolio-title">{project.title}</h3>
+                  <p className="portfolio-subtitle">{project.description}</p>
+                  
+                  <ul className="portfolio-checks">
+                    {project.techs.map((tech, index) => (
+                      <li key={index}><span>✓</span> {tech}</li>
+                    ))}
+                  </ul>
+                  
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary mt-3">
+                    Ver Projeto Online
+                  </a>
+                </div>
+              </div>
+
+              {/* Imagem do Projeto */}
+              <div className="col-lg-6 offset-lg-1">
+                <div className="portfolio-visual">
+                  <div className="browser-mockup">
+                    <div className="browser-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <img 
+                      src={project.image} 
+                      alt={`Case ${project.title}`} 
+                      className="img-fluid"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
