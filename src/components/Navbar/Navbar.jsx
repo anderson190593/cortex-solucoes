@@ -1,7 +1,7 @@
 // src/components/Navbar/Navbar.jsx
 import React, { useState } from 'react';
 import './Navbar.css'; 
-import CortexLogo from '../../assets/logos/logo-cortex-Photoroom.png';
+import SynapLogo from '../../assets/logos/logo-synap.png';
 
 // Ícone do Sol (para o modo escuro)
 const IconSun = () => (
@@ -44,7 +44,7 @@ const Navbar = ({ theme, toggleTheme }) => {
       <div className="container">
         {/* 1. Logo */}
         <a className="navbar-brand" href="#" onClick={closeMenu}>
-          <img src={CortexLogo} alt="Cortex Soluções Logo" className="navbar-logo" />
+          <img src={SynapLogo} alt="Synap Technology Logo" className="navbar-logo" />
         </a>
 
         {/* 2. Botão Sanduíche (Controlado pelo React agora) */}
