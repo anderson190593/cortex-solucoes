@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Footer.css';
-import CortexLogo from '../../assets/logos/logo-cortex-Photoroom.png'; // 1. IMPORTAR A LOGO
+import SynapLogo from '../../assets/logos/logo-synap.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="col-lg-4">
             {/* 2. USAR A IMAGEM DA LOGO AQUI */}
             <a className="footer-brand" href="#">
-              <img src={CortexLogo} alt="Cortex Soluções Logo" className="footer-logo" />
+              <img src={SynapLogo} alt="Synap Technology Logo" className="footer-logo" />
             </a>
           </div>
           <div className="col-lg-8">
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <p className="copyright-text">
             {/* 3. ATUALIZAR NOME DA EMPRESA */}
-            &copy; {currentYear} Cortex Soluções. Todos os direitos reservados.
+            &copy; {currentYear} Synap Technology. Todos os direitos reservados.
           </p>
         </div>
       </div>

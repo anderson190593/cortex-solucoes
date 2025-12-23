@@ -27,7 +27,7 @@ const projects = [
     id: 3,
     tag: "Personal Branding",
     title: "Anderson Roberto",
-    description: "O hub digital do fundador. Um espaço minimalista que centraliza artigos, projetos e a visão técnica que guia a Cortex. Performance extrema e identidade visual marcante.",
+    description: "O hub digital do fundador. Um espaço minimalista que centraliza artigos, projetos e a visão técnica que guia a Synap. Performance extrema e identidade visual marcante.",
     techs: ["React", "UX/UI Design", "SEO Técnico", "Blog"], // Ajuste as techs se necessário
     link: "https://www.andersonroberto.com.br/",
     image: "/case-anderson.png", // Não esqueça de salvar o print com este nome!
