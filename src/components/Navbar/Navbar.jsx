@@ -1,7 +1,7 @@
 // src/components/Navbar/Navbar.jsx
 import React, { useState } from 'react';
 import './Navbar.css'; 
-import SynapLogo from '../../assets/logos/logo-synap.png';
+import SynapLogo from '../../assets/logos/synap-logo.png';
 
 // Ícone do Sol (para o modo escuro)
 const IconSun = () => (

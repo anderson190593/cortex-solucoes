@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './Footer.css';
-import SynapLogo from '../../assets/logos/logo-synap.png';
+import SynapLogo from '../../assets/logos/synap-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
