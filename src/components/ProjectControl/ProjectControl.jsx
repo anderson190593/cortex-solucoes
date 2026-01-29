@@ -26,7 +26,7 @@ const ProjectControl = () => {
               Acompanhe seu projeto em tempo real.
             </h2>
             <p className="control-subtitle">
-              Acreditamos na transparência total. Oferecemos total autonomia para você pode acompanhar o progresso, validar entregas e 
+              Acreditamos na transparência total. Oferecemos total autonomia para você poder acompanhar o progresso, validar entregas e 
               se comunicar diretamente com nossa equipe.
             </p>
             {/* Adaptamos os botões da app store para nossos links */}
