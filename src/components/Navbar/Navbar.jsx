@@ -4,7 +4,6 @@ import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,24 +17,30 @@ const Navbar = () => {
     <nav className={`navbar-custom ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="nav-content">
+          {/* LOGO CORRIGIDA E LINKADA AO TOPO */}
           <a href="#" className="logo">
-            <div className="logo-icon">S</div>
+            <img 
+              src="/src/assets/logos/synap-logo.png" 
+              alt="Synap Logo" 
+              className="logo-img" 
+            />
             <span className="logo-text">Synap <span className="text-primary">Tech</span></span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="nav-links hidden lg:flex items-center">
+          {/* NAVEGAÇÃO E BOTÕES */}
+          <div className="nav-links">
             <a href="#fundamentos">Fundamentos</a>
             <a href="#identidade">Identidade</a>
             <a href="#anuncios">Anúncios</a>
-            <a href="https://marca-de-elite.vercel.app" className="contact-btn">QUERO SER ELITE</a>
+            
+            {/* BOTÃO DE CONTATO PROFISSIONAL */}
+            <a href="https://marca-de-elite.vercel.app" className="contact-btn">
+              QUERO SER ELITE
+            </a>
+            
+            {/* BOTÃO DE TROCA DE TEMA */}
             <ThemeToggle />
           </div>
-
-          {/* Mobile Button */}
-          <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-             <span className="text-2xl">☰</span>
-          </button>
         </div>
       </div>
     </nav>

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Tema Dark (Padrão Synap) */
+  /* Tema Dark Profissional */
   --primary: #00f2ff;
   --primary-glow: rgba(0, 242, 255, 0.3);
   --secondary: #bc13fe;
   --secondary-glow: rgba(188, 19, 254, 0.3);
   
   --bg-dark: #050505;
-  --bg-nav: rgba(5, 5, 5, 0.8);
+  --bg-nav: rgba(5, 5, 5, 0.85);
   --bg-glass: rgba(255, 255, 255, 0.03);
   
   --text-main: #ffffff;
@@ -20,14 +20,14 @@
   --font-body: 'Inter', sans-serif;
 }
 
+/* Suporte para o Botão de Troca de Tema */
 [data-theme='light'] {
   --bg-dark: #f8f9fa;
-  --bg-nav: rgba(248, 249, 250, 0.8);
+  --bg-nav: rgba(248, 249, 250, 0.85);
   --bg-glass: rgba(0, 0, 0, 0.03);
   --text-main: #1a1a1a;
   --text-muted: #6c757d;
   --border-subtle: rgba(0, 0, 0, 0.1);
-  --primary-glow: rgba(0, 242, 255, 0.15);
 }
 
 body {
@@ -36,12 +36,6 @@ body {
   font-family: var(--font-body);
   transition: background-color 0.3s ease, color 0.3s ease;
   margin: 0;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .text-primary { color: var(--primary); }
