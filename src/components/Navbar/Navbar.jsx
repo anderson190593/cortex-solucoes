@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './Navbar.css';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+// Importação correta da logo para garantir que o Vite a encontre
+import synapLogo from '../../assets/logos/synap-logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,28 +19,24 @@ const Navbar = () => {
     <nav className={`navbar-custom ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="nav-content">
-          {/* LOGO CORRIGIDA E LINKADA AO TOPO */}
+          {/* LOGO LINKADA AO TOPO (#) */}
           <a href="#" className="logo">
             <img 
-              src="/src/assets/logos/synap-logo.png" 
+              src={synapLogo} 
               alt="Synap Logo" 
               className="logo-img" 
             />
             <span className="logo-text">Synap <span className="text-primary">Tech</span></span>
           </a>
 
-          {/* NAVEGAÇÃO E BOTÕES */}
           <div className="nav-links">
             <a href="#fundamentos">Fundamentos</a>
             <a href="#identidade">Identidade</a>
             <a href="#anuncios">Anúncios</a>
-            
-            {/* BOTÃO DE CONTATO PROFISSIONAL */}
             <a href="https://marca-de-elite.vercel.app" className="contact-btn">
               QUERO SER ELITE
             </a>
-            
-            {/* BOTÃO DE TROCA DE TEMA */}
+            {/* Botão de Troca de Tema */}
             <ThemeToggle />
           </div>
         </div>
