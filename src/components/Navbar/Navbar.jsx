@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Navbar.css';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-// Importação correta da logo para garantir que o Vite a encontre
 import synapLogo from '../../assets/logos/synap-logo.png';
 
 const Navbar = () => {
@@ -19,13 +18,9 @@ const Navbar = () => {
     <nav className={`navbar-custom ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="nav-content">
-          {/* LOGO LINKADA AO TOPO (#) */}
-          <a href="#" className="logo">
-            <img 
-              src={synapLogo} 
-              alt="Synap Logo" 
-              className="logo-img" 
-            />
+          {/* LOGO ÚNICA LINKADA AO INÍCIO */}
+          <a href="/" className="logo">
+            <img src={synapLogo} alt="Synap Logo" className="logo-img" />
             <span className="logo-text">Synap <span className="text-primary">Tech</span></span>
           </a>
 
