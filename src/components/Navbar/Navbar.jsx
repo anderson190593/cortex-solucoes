@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo">
-            <img src="/src/assets/logos/synap-logo.png" alt="Synap Logo" className="logo-img" />
+            <img src="/src/assets/logos/synap-logo.png" alt="Synap Logo" className="logo-img" style={{height: '40px'}} />
             <span className="logo-text">Synap <span className="text-primary">Tech</span></span>
           </div>
           

@@ -1,153 +1,76 @@
-/* src/components/Navbar/Navbar.css */
-
 .navbar-custom {
-  padding: 1rem 0;
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
-  
-  /* CORREÇÃO DO SCROLL HORIZONTAL: */
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;   /* Estica de ponta a ponta sem estourar a tela */
-  width: auto; /* Remove largura fixa problemática */
-  
+  width: 100%;
+  padding: 1.5rem 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navbar-brand {
+.navbar-custom.scrolled {
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.navbar-logo {
-  height: 40px;
-  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3));
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
 }
 
-/* Links */
-.nav-link {
-  font-family: var(--font-body);
-  color: var(--text-muted) !important;
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  margin: 0 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--primary) !important;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0px;
-  left: 0;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
-  box-shadow: 0 0 8px var(--primary);
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* --- BOTÃO HAMBÚRGUER (CORREÇÃO UX) --- */
-.navbar-toggler {
-  /* Borda neon visível */
-  border: 1px solid var(--primary);
-  background: rgba(0, 242, 255, 0.05); /* Fundo sutil */
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  z-index: 1001;
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 15px var(--primary-glow);
-  outline: none;
-}
-
-/* Linhas do ícone bem visíveis */
-.toggler-icon {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--primary); /* Cor Neon */
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 5px var(--primary-glow);
-}
-
-/* Efeito de "X" quando aberto */
-.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(2) {
-  opacity: 0;
-}
-.navbar-toggler:not(.collapsed) .toggler-icon:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* --- THEME TOGGLER --- */
-.theme-toggler {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  transition: all 0.3s;
-}
-
-.theme-toggler:hover {
+.nav-links a:hover {
   color: var(--primary);
-  border-color: var(--primary);
-  box-shadow: 0 0 10px var(--primary-glow);
-  transform: rotate(15deg);
 }
 
-/* Mobile Layout */
+.contact-btn {
+  background: var(--primary);
+  color: #000 !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+  transition: all 0.3s ease !important;
+  text-decoration: none;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+  filter: brightness(1.1);
+}
+
 @media (max-width: 991px) {
-  /* ... regras anteriores do collapse ... */
-
-  .navbar-actions {
-    margin-top: 1.5rem;
-    flex-direction: column;
-    align-items: stretch !important;
-    gap: 10px;
-  }
-
-  .navbar-actions .btn {
-    width: 100%;
-    margin: 0;
-  }
-
-  /* --- CORREÇÃO AQUI: Botão de Tema --- */
-  .navbar-actions .theme-toggler {
-    width: 40px !important;  /* Força a largura fixa */
-    height: 40px !important; /* Força a altura fixa */
-    margin-top: 1rem;
-    align-self: center;      /* Centraliza no meio da tela */
-    border-radius: 50%;      /* Garante que fique redondo */
-  }
+  .nav-links { display: none; }
 }

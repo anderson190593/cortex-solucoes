@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Restauração das Cores de Elite */
   --color-primary: #00f2ff;
   --color-secondary: #bc13fe;
   --color-bg-dark: #050505;
@@ -9,29 +8,30 @@
   
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
-
-  /* Efeitos de Brilho Originais */
-  --animate-bounce-slow: float 6s ease-in-out infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(1deg); }
-  }
 }
 
-/* Variáveis para suporte ao CSS Tradicional */
+/* Variáveis para suporte aos arquivos .css dos componentes */
 :root {
   --primary: #00f2ff;
+  --primary-glow: rgba(0, 242, 255, 0.4);
   --secondary: #bc13fe;
+  --secondary-glow: rgba(188, 19, 254, 0.4);
   --bg-dark: #050505;
-  --text-muted: #a0a0a0;
   --bg-glass: rgba(255, 255, 255, 0.03);
   --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 body {
+  margin: 0;
   background-color: var(--bg-dark);
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+.text-primary { color: var(--primary); }
